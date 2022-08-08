@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ctn_golang
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    expose:
+      - 8080
+    volumes:
+      - ./www:/go/src/www
+      - ./:/go/src
+    working_dir: /go/src/
+    command: sleep 7200
