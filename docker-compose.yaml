@@ -2,9 +2,7 @@ version: "3.9"
 
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: purawatzero/dpu_ct519_lab5:img_golang
     container_name: ctn_golang
     ports:
       - "8080:8080"
@@ -15,4 +13,4 @@ services:
       - ./www:/go/src/www
       - ./:/go/src
     working_dir: /go/src/
-    command: sleep 7200
+    command: 'go run main.go'
